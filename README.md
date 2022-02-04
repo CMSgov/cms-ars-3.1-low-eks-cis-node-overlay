@@ -1,8 +1,8 @@
-# cms-ars-3.1-moderate-eks-cis-node-overlay
+# cms-ars-3.1-low-eks-cis-node-overlay
 
-InSpec profile to validate the secure configuration of AWS EKS nodes, against [CIS](https://www.cisecurity.org/cis-benchmarks/)'s CIS Amazon Elastic Kubernetes Service (EKS) Benchmark version 1.0.1 (Node requirements) tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as Moderate.
+InSpec profile to validate the secure configuration of AWS EKS nodes, against [CIS](https://www.cisecurity.org/cis-benchmarks/)'s CIS Amazon Elastic Kubernetes Service (EKS) Benchmark version 1.0.1 (Node requirements) tailored for [CMS ARS 3.1](https://www.cms.gov/Research-Statistics-Data-and-Systems/CMS-Information-Technology/InformationSecurity/Info-Security-Library-Items/ARS-31-Publication.html) for CMS systems categorized as Low.
 
-The baseline includes tests that must be executed against the Kubernetes API and tests that must be executed against the underlying nodes over SSH. This profile handles only the node tests, and is intended to be run alongside the [CMS ARS 3.1 Moderate EKS CIS Cluster Overlay profile](https://github.com/CMSgov/cms-ars-3.1-moderate-eks-cis-cluster-overlay).
+The baseline includes tests that must be executed against the Kubernetes API and tests that must be executed against the underlying nodes over SSH. This profile handles only the node tests, and is intended to be run alongside the [CMS ARS 3.1 Low EKS CIS Cluster Overlay profile](https://github.com/CMSgov/cms-ars-3.1-low-eks-cis-cluster-overlay).
 
 ## Getting Started
 
@@ -36,8 +36,8 @@ external_cert_authority_in_use:
 Executing the profile by downloading it to the runner:
 
 ```
-git clone https://github.com/CMSgov/cms-ars-3.1-moderate-eks-cis-node-overlay.git
-cd cms-ars-3.1-moderate-eks-cis-node-overlay
+git clone https://github.com/CMSgov/cms-ars-3.1-low-eks-cis-node-overlay.git
+cd cms-ars-3.1-low-eks-cis-node-overlay
 inspec exec . -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:node1results.json
 ...
 inspec exec . -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:nodeNresults.json
@@ -46,9 +46,9 @@ inspec exec . -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-f
 Executing the profile by executing it from this GitHub repository:
 
 ```
-inspec exec https://github.com/CMSgov/cms-ars-3.1-moderate-eks-cis-node-overlay/archive/main.tar.gz -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:node1results.json
+inspec exec https://github.com/CMSgov/cms-ars-3.1-low-eks-cis-node-overlay/archive/main.tar.gz -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:node1results.json
 ...
-inspec exec https://github.com/CMSgov/cms-ars-3.1-moderate-eks-cis-node-overlay/archive/main.tar.gz -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:nodeNresults.json
+inspec exec https://github.com/CMSgov/cms-ars-3.1-low-eks-cis-node-overlay/archive/main.tar.gz -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:nodeNresults.json
 ```
 
 ## Running This Baseline from a local Archive copy
@@ -60,18 +60,18 @@ If your runner is not always expected to have direct access to GitHub, use the f
 ```
 mkdir profiles
 cd profiles
-git clone https://github.com/CMSgov/cms-ars-3.1-moderate-eks-cis-node-overlay.git
-inspec archive cms-ars-3.1-moderate-eks-cis-node-overlay
+git clone https://github.com/CMSgov/cms-ars-3.1-low-eks-cis-node-overlay.git
+inspec archive cms-ars-3.1-low-eks-cis-node-overlay
 sudo inspec exec <archive name> -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:nodeNresults.json
 ```
 
 For every successive run, follow these steps to always have the latest version of this baseline and dependent profiles:
 
 ```
-cd cms-ars-3.1-moderate-eks-cis-node-overlay
+cd cms-ars-3.1-low-eks-cis-node-overlay
 git pull
 cd ..
-inspec archive cms-ars-3.1-moderate-eks-cis-node-overlay --overwrite
+inspec archive cms-ars-3.1-low-eks-cis-node-overlay --overwrite
 sudo inspec exec <archive name> -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:nodeNresults.json
 ```
 
@@ -93,7 +93,7 @@ The JSON InSpec results file may also be loaded into a **[full heimdall server](
 
 ## Contributing and Getting Help
 
-To report a bug or feature request, please open an [issue](https://github.com/CMSgov/cms-ars-3.1-moderate-eks-cis-node-overlay/issues/new).
+To report a bug or feature request, please open an [issue](https://github.com/CMSgov/cms-ars-3.1-low-eks-cis-node-overlay/issues/new).
 
 ### NOTICE
 
